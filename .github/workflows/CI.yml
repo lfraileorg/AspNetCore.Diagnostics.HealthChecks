@@ -37,17 +37,7 @@ jobs:
         run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
 
       - name: Publish GitHub Packages
-        run: |
-            for f in ./artifacts/*.nupkg
-            do
-              echo "Publishing $f"
-              curl --silent -X PUT -u "lfraileorg:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/lfraileorg/
-              if [ $? -eq 0 ]
-              then
-                echo "successfully pushed $f"
-              else
-                echo "failed to push $f" >&2
-                exit 1
-              fi
-            done
+        run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/lfraileorg/index.json --api-key ${{secrets.GITHUB_TOKEN }} --skip-duplicate
+        
         shell: bash
+        working-directory: ./artifacts
