@@ -54,6 +54,6 @@ jobs:
         run: dotnet test --no-build
         working-directory: ./test/UnitTests
       - name: dotnet pack
-        run: dotnet pack -o ./artifacts
-        working-directory: ./src -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
+        run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
+        working-directory: ./src 
         
