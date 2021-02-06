@@ -13,35 +13,11 @@ jobs:
     env:
       BUILD_CONFIG: Release
       VERSION_SUFFIX: -preview${{ github.run_id }}
-    services:
-      sql-server:
-        image: microsoft/mssql-server-linux
-        env:
-          ACCEPT_EULA: Y
-          MSSQL_SA_PASSWORD: Password12!
-        ports:
-            - 1833:1433
-      postgres:
-        image: postgres
-        ports:
-            - 8010:5432
-        env:
-            POSTGRES_PASSWORD: Password12!
-      mysql:
-        image: mysql
-        ports:
-            - 3306:3306
-        env:
-            MYSQL_ROOT_PASSWORD: Password12!
-            MYSQL_USER: mysql
-            MYSQL_PASSWORD: Password12! 
-      mongodb:
-        image: mongo
-        ports:
-            - 27017:27017
     runs-on: ubuntu-latest    
     steps:      
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v2   
+      - name: Functional tests containers
+        run: docker-compose up -d   
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -53,6 +29,7 @@ jobs:
       - name: dotnet test UnitTests
         run: dotnet test -c $BUILD_CONFIG --no-build
         working-directory: ./test/UnitTests
+     
       - name: dotnet pack
         run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
         
