@@ -17,18 +17,26 @@ jobs:
     steps:      
       - uses: actions/checkout@v2   
       - name: Functional tests containers
-        run: docker-compose up -d   
+        run: docker-compose up -d 
+         
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.0.x
+          
       - name: Restore
         run: dotnet restore ./AspNetCore.Diagnostics.HealthChecks.sln
+        
       - name: Build with dotnet
         run: dotnet build ./AspNetCore.Diagnostics.HealthChecks.sln --configuration $BUILD_CONFIG
+        
       - name: dotnet test UnitTests
         run: dotnet test -c $BUILD_CONFIG --no-build
         working-directory: ./test/UnitTests
+        
+      - name: dotnet test FunctionalTests
+        run: dotnet test -c $BUILD_CONFIG --no-build
+        working-directory: ./test/FunctionalTests
      
       - name: dotnet pack
         run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
