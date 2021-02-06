@@ -51,7 +51,7 @@ jobs:
       - name: Build with dotnet
         run: dotnet build ./AspNetCore.Diagnostics.HealthChecks.sln --configuration $BUILD_CONFIG
       - name: dotnet test UnitTests
-        run: dotnet test
+        run: dotnet test --no-build
         working-directory: ./test/UnitTests
       - name: dotnet pack
         run: dotnet pack -o ./artifacts
