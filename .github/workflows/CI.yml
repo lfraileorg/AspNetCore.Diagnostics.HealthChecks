@@ -12,6 +12,7 @@ jobs:
   build:
     env:
       BUILD_CONFIG: Release
+      VERSION_SUFFIX: -preview${{ github.run_id }}
     services:
       sql-server:
         image: microsoft/mssql-server-linux
@@ -52,6 +53,7 @@ jobs:
       - name: dotnet test UnitTests
         run: dotnet test
         working-directory: ./test/UnitTests
-      - name: dotnet test Functional Tests
-        run: dotnet test
-        working-directory: ./test/FunctionalTests
+      - name: dotnet pack
+        run: dotnet pack -o ./artifacts
+        working-directory: ./src -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
+        
