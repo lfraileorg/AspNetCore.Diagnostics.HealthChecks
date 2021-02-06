@@ -13,12 +13,11 @@ jobs:
     env:
       BUILD_CONFIG: Release
       VERSION_SUFFIX: -preview${{ github.run_id }}
+      PACKAGES_REPO: lfraileorg 
     runs-on: ubuntu-latest    
     steps:      
-      - uses: actions/checkout@v2   
-      - name: Functional tests containers
-        run: docker-compose up -d 
-         
+      - uses: actions/checkout@v2  
+                 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -33,11 +32,22 @@ jobs:
       - name: dotnet test UnitTests
         run: dotnet test -c $BUILD_CONFIG --no-build
         working-directory: ./test/UnitTests
-        
-      - name: dotnet test FunctionalTests
-        run: dotnet test -c $BUILD_CONFIG --no-build
-        working-directory: ./test/FunctionalTests
-     
+           
       - name: dotnet pack
         run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
-        
+
+      - name: Publish GitHub Packages
+        run: |
+            for f in ./artifacts/*.nupkg
+            do
+              echo "Publishing $f"
+              curl --silent -X PUT -u "$PACKAGES_REPO:${{ secrets.PACKAGES_PAT }}" -F package=@$f https://nuget.pkg.github.com/$PACKAGES_REPO/
+              if [ $? -eq 0 ]
+              then
+                echo "successfully pushed $f"
+              else
+                echo "failed to push $f" >&2
+                exit 1
+              fi
+            done
+        shell: bash
