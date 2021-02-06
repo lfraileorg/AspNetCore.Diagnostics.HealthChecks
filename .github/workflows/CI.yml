@@ -52,3 +52,6 @@ jobs:
       - name: dotnet test UnitTests
         run: dotnet test
         working-directory: ./test/UnitTests
+      - name: dotnet test Functional Tests
+        run: dotnet test
+        working-directory: ./test/FunctionalTests
