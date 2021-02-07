@@ -34,7 +34,7 @@ jobs:
         working-directory: ./test/UnitTests
            
       - name: dotnet pack
-        run: dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols
+        run: 'dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols /p:RepositoryUrl=https://github.com/lfraileorg/AspNetCore.Diagnostics.HealthChecks'
 
       - name: Publish GitHub Packages
         run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/lfraileorg/index.json --api-key ${{secrets.GITHUB_TOKEN }} --skip-duplicate

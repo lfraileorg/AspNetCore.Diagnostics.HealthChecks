@@ -8,8 +8,8 @@
 
   <PropertyGroup Label="Package information">
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>http://github.com/xabaril/AspNetCore.Diagnostics.HealthChecks</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/xabaril/AspNetCore.Diagnostics.HealthChecks</RepositoryUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
     <Authors>Xabaril Contributors</Authors>
     <Company>Xabaril</Company>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -97,53 +97,53 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Health Checks Package Versions">
-    <HealthCheckIdSvr>5.0.1</HealthCheckIdSvr>
-    <HealthCheckSqlServer>5.0.2</HealthCheckSqlServer>
-    <HealthCheckSqlite>5.0.1</HealthCheckSqlite>
-    <HealthCheckUri>5.0.1</HealthCheckUri>
-    <HealthCheckRedis>5.0.1</HealthCheckRedis>
-    <HealthCheckRabbitMQ>5.0.1</HealthCheckRabbitMQ>
-    <HealthCheckEventStore>5.0.1</HealthCheckEventStore>
-    <HealthCheckElasticsearch>5.0.1</HealthCheckElasticsearch>
-    <HealthCheckSolr>5.0.1</HealthCheckSolr>
-    <HealthCheckOracle>5.0.1</HealthCheckOracle>
-    <HealthCheckNpgSql>5.0.1</HealthCheckNpgSql>
-    <HealthCheckMongoDB>5.0.1</HealthCheckMongoDB>
-    <HealthCheckMySql>5.0.1</HealthCheckMySql>
-    <HealthCheckKafka>5.0.1</HealthCheckKafka>
-    <HealthCheckSystem>5.0.1</HealthCheckSystem>
-    <HealthCheckNetwork>5.0.1</HealthCheckNetwork>
-    <HealthCheckDynamoDb>5.0.1</HealthCheckDynamoDb>
-    <HealthCheckCosmosDb>5.0.1</HealthCheckCosmosDb>
-    <HealthCheckGremlin>5.0.1</HealthCheckGremlin>
-    <HealthCheckDocumentDb>5.0.1</HealthCheckDocumentDb>
-    <HealthCheckAzureStorage>5.0.1</HealthCheckAzureStorage>
-    <HealthCheckHangfire>5.0.1</HealthCheckHangfire>
-    <HealthCheckAzureServiceBus>5.0.1</HealthCheckAzureServiceBus>
-    <HealthCheckConsul>5.0.1</HealthCheckConsul>
-    <HealthCheckUI>5.0.1</HealthCheckUI>
-    <HealthCheckUICore>5.0.1</HealthCheckUICore>
-    <HealthCheckUIClient>5.0.1</HealthCheckUIClient>
-    <HealthCheckUISqlServerStorage>5.0.1</HealthCheckUISqlServerStorage>
-    <HealthCheckUISQLiteStorage>5.0.1</HealthCheckUISQLiteStorage>
-    <HealthChecksUIPostgreSQLStorage>5.0.1</HealthChecksUIPostgreSQLStorage>
-    <HealthCheckUIInMemoryStorage>5.0.1</HealthCheckUIInMemoryStorage>
-    <HealthCheckUIMySqlStorage>5.0.1</HealthCheckUIMySqlStorage>
-    <HealthCheckPublisherAppplicationInsights>5.0.1</HealthCheckPublisherAppplicationInsights>
-    <HealthCheckPublisherDatadog>5.0.1</HealthCheckPublisherDatadog>
-    <HealthCheckPublisherPrometheus>5.0.1</HealthCheckPublisherPrometheus>
-    <HealthCheckPrometheusMetrics>5.0.1</HealthCheckPrometheusMetrics>
-    <HealthCheckAWSS3>5.0.1</HealthCheckAWSS3>
-    <HealthCheckKeyVault>5.0.1</HealthCheckKeyVault>
-    <HealthCheckPublisherSeq>5.0.1</HealthCheckPublisherSeq>
-    <HealthCheckRavenDB>5.0.1</HealthCheckRavenDB>
-    <HealthCheckKubernetes>5.0.1</HealthCheckKubernetes>
-    <HealthCheckSignalR>5.0.1</HealthCheckSignalR>
-    <HealthCheckCloudFirestore>5.0.1</HealthCheckCloudFirestore>
-    <HealthCheckIoTHub>5.0.1</HealthCheckIoTHub>
-    <HealthCheckIbmMQ>5.0.1</HealthCheckIbmMQ>
-    <HealthChecksUIK8sOperator>5.0.1</HealthChecksUIK8sOperator>
-    <HealthCheckSendGrid>5.0.1</HealthCheckSendGrid>
-    <HealthCheckArangoDb>5.0.1</HealthCheckArangoDb>
+    <HealthCheckIdSvr>5.0.1$(VersionSuffix)</HealthCheckIdSvr>
+    <HealthCheckSqlServer>5.0.2$(VersionSuffix)</HealthCheckSqlServer>
+    <HealthCheckSqlite>5.0.1$(VersionSuffix)</HealthCheckSqlite>
+    <HealthCheckUri>5.0.1$(VersionSuffix)</HealthCheckUri>
+    <HealthCheckRedis>5.0.1$(VersionSuffix)</HealthCheckRedis>
+    <HealthCheckRabbitMQ>5.0.1$(VersionSuffix)</HealthCheckRabbitMQ>
+    <HealthCheckEventStore>5.0.1$(VersionSuffix)</HealthCheckEventStore>
+    <HealthCheckElasticsearch>5.0.1$(VersionSuffix)</HealthCheckElasticsearch>
+    <HealthCheckSolr>5.0.1$(VersionSuffix)</HealthCheckSolr>
+    <HealthCheckOracle>5.0.1$(VersionSuffix)</HealthCheckOracle>
+    <HealthCheckNpgSql>5.0.1$(VersionSuffix)</HealthCheckNpgSql>
+    <HealthCheckMongoDB>5.0.1$(VersionSuffix)</HealthCheckMongoDB>
+    <HealthCheckMySql>5.0.1$(VersionSuffix)</HealthCheckMySql>
+    <HealthCheckKafka>5.0.1$(VersionSuffix)</HealthCheckKafka>
+    <HealthCheckSystem>5.0.1$(VersionSuffix)</HealthCheckSystem>
+    <HealthCheckNetwork>5.0.1$(VersionSuffix)</HealthCheckNetwork>
+    <HealthCheckDynamoDb>5.0.1$(VersionSuffix)</HealthCheckDynamoDb>
+    <HealthCheckCosmosDb>5.0.1$(VersionSuffix)</HealthCheckCosmosDb>
+    <HealthCheckGremlin>5.0.1$(VersionSuffix)</HealthCheckGremlin>
+    <HealthCheckDocumentDb>5.0.1$(VersionSuffix)</HealthCheckDocumentDb>
+    <HealthCheckAzureStorage>5.0.1$(VersionSuffix)</HealthCheckAzureStorage>
+    <HealthCheckHangfire>5.0.1$(VersionSuffix)</HealthCheckHangfire>
+    <HealthCheckAzureServiceBus>5.0.1$(VersionSuffix)</HealthCheckAzureServiceBus>
+    <HealthCheckConsul>5.0.1$(VersionSuffix)</HealthCheckConsul>
+    <HealthCheckUI>5.0.1$(VersionSuffix)</HealthCheckUI>
+    <HealthCheckUICore>5.0.1$(VersionSuffix)</HealthCheckUICore>
+    <HealthCheckUIClient>5.0.1$(VersionSuffix)</HealthCheckUIClient>
+    <HealthCheckUISqlServerStorage>5.0.1$(VersionSuffix)</HealthCheckUISqlServerStorage>
+    <HealthCheckUISQLiteStorage>5.0.1$(VersionSuffix)</HealthCheckUISQLiteStorage>
+    <HealthChecksUIPostgreSQLStorage>5.0.1$(VersionSuffix)</HealthChecksUIPostgreSQLStorage>
+    <HealthCheckUIInMemoryStorage>5.0.1$(VersionSuffix)</HealthCheckUIInMemoryStorage>
+    <HealthCheckUIMySqlStorage>5.0.1$(VersionSuffix)</HealthCheckUIMySqlStorage>
+    <HealthCheckPublisherAppplicationInsights>5.0.1$(VersionSuffix)</HealthCheckPublisherAppplicationInsights>
+    <HealthCheckPublisherDatadog>5.0.1$(VersionSuffix)</HealthCheckPublisherDatadog>
+    <HealthCheckPublisherPrometheus>5.0.1$(VersionSuffix)</HealthCheckPublisherPrometheus>
+    <HealthCheckPrometheusMetrics>5.0.1$(VersionSuffix)</HealthCheckPrometheusMetrics>
+    <HealthCheckAWSS3>5.0.1$(VersionSuffix)</HealthCheckAWSS3>
+    <HealthCheckKeyVault>5.0.1$(VersionSuffix)</HealthCheckKeyVault>
+    <HealthCheckPublisherSeq>5.0.1$(VersionSuffix)</HealthCheckPublisherSeq>
+    <HealthCheckRavenDB>5.0.1$(VersionSuffix)</HealthCheckRavenDB>
+    <HealthCheckKubernetes>5.0.1$(VersionSuffix)</HealthCheckKubernetes>
+    <HealthCheckSignalR>5.0.1$(VersionSuffix)</HealthCheckSignalR>
+    <HealthCheckCloudFirestore>5.0.1$(VersionSuffix)</HealthCheckCloudFirestore>
+    <HealthCheckIoTHub>5.0.1$(VersionSuffix)</HealthCheckIoTHub>
+    <HealthCheckIbmMQ>5.0.1$(VersionSuffix)</HealthCheckIbmMQ>
+    <HealthChecksUIK8sOperator>5.0.1$(VersionSuffix)</HealthChecksUIK8sOperator>
+    <HealthCheckSendGrid>5.0.1$(VersionSuffix)</HealthCheckSendGrid>
+    <HealthCheckArangoDb>5.0.1$(VersionSuffix)</HealthCheckArangoDb>
   </PropertyGroup>
 </Project>
