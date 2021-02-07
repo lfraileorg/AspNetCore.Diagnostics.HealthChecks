@@ -37,7 +37,17 @@ jobs:
         run: 'dotnet pack -o ./artifacts -c $BUILD_CONFIG --version-suffix $VERSION_SUFFIX --no-build --include-source --include-symbols /p:RepositoryUrl=https://github.com/lfraileorg/AspNetCore.Diagnostics.HealthChecks'
 
       - name: Publish GitHub Packages
-        run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/lfraileorg/index.json --api-key ${{secrets.GITHUB_TOKEN }} --skip-duplicate
-        
+        run: |
+            for f in ./artifacts/*.nupkg
+            do
+              echo "Publishing $f"
+              dotnet nuget push $f --source https://nuget.pkg.github.com/lfraileorg/index.json --api-key ${{secrets.GITHUB_TOKEN }} --skip-duplicate
+              if [ $? -eq 0 ]
+              then
+                echo "successfully pushed $f"
+              else
+                echo "failed to push $f" >&2
+                exit 1
+              fi
+            done
         shell: bash
-        working-directory: ./artifacts
