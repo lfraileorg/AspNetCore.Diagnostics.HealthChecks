@@ -29,7 +29,7 @@ namespace FunctionalTests.HealthChecks.Npgsql
             //https://www.appveyor.com/docs/services-databases/#sql-server-2017 
 
             var connectionString = _fixture.IsAppVeyorExecution ?
-                "Server=127.0.0.1;Port=5432;User ID=postgres;Password=Password12!;database=postgres" :
+                "Server=localhost;Port=5432;User ID=postgres;Password=Password12!;database=postgres" :
                 "Server=127.0.0.1;Port=8010;User ID=postgres;Password=Password12!;database=postgres";
 
             var webHostBuilder = new WebHostBuilder()
