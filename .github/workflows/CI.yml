@@ -7,7 +7,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]  
-      
+# review https://dev.to/kurtmkurtm/testing-net-core-apps-with-github-actions-3i76
 jobs:  
   build:
     services:
@@ -17,7 +17,7 @@ jobs:
           ACCEPT_EULA: Y
           MSSQL_SA_PASSWORD: Password12!
         ports:
-            - 1833:1433
+            - 1433:1433
       postgres:
         image: postgres
         ports:
